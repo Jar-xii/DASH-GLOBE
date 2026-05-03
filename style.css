@@ -169,6 +169,10 @@ body {
 }
 
 /* Font Personalization */
+.personalization-title {
+    margin-top: 1.5rem;
+}
+
 .font-selector-container {
     margin-top: 0.8rem;
     display: flex;

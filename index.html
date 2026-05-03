@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,10 @@
     <script src="https://unpkg.com/d3"></script>
     <script src="https://unpkg.com/globe.gl"></script>
 </head>
+
 <body>
     <div id="globe-container"></div>
-    
+
     <!-- Accordion Menu (Top Right) -->
     <div class="accordion-menu">
         <button class="accordion-button" id="accordion-toggle" aria-expanded="false" aria-controls="accordion-content">
@@ -25,14 +27,15 @@
         <div class="accordion-content" id="accordion-content" aria-hidden="true">
             <div class="accordion-inner">
                 <h3 class="accordion-title">DASH-GLOBE Info</h3>
-                <p class="accordion-desc">An interactive 3D globe showing real-time accurate local times and daylight savings.</p>
+                <p class="accordion-desc">An interactive 3D globe showing real-time accurate local times and daylight
+                    savings.</p>
                 <ul class="accordion-list">
                     <li>Hover to view country time.</li>
                     <li>Colors reflect local day/night cycle.</li>
                     <li>Drag to rotate, scroll to zoom.</li>
                 </ul>
 
-                <h3 class="accordion-title" style="margin-top: 1.5rem;">Personalization</h3>
+                <h3 class="accordion-title personalization-title">Personalization</h3>
                 <div class="font-selector-container">
                     <label for="font-select">App Font:</label>
                     <select id="font-select" class="glass-select">
@@ -47,7 +50,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="glass-panel" id="info-panel">
         <div class="panel-header">
             <h1 id="country-name">Hover a Country</h1>
@@ -58,7 +61,7 @@
             <div class="timezone-display" id="timezone-info">UTC Offset: --</div>
         </div>
     </div>
-    
+
     <div class="legend">
         <div class="legend-title">Local Time Color Scale</div>
         <div class="legend-bar"></div>
@@ -73,4 +76,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
