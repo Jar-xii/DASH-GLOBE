@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Timezone Globe</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Scripts -->
+    <script src="https://unpkg.com/d3"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
+</head>
+<body>
+    <div id="globe-container"></div>
+    
+    <!-- Accordion Menu (Top Right) -->
+    <div class="accordion-menu">
+        <button class="accordion-button" id="accordion-toggle" aria-expanded="false" aria-controls="accordion-content">
+            <span class="accordion-icon">☰</span> <span class="accordion-text">Settings</span>
+        </button>
+        <div class="accordion-content" id="accordion-content" aria-hidden="true">
+            <div class="accordion-inner">
+                <h3 class="accordion-title">DASH-GLOBE Info</h3>
+                <p class="accordion-desc">An interactive 3D globe showing real-time accurate local times and daylight savings.</p>
+                <ul class="accordion-list">
+                    <li>Hover to view country time.</li>
+                    <li>Colors reflect local day/night cycle.</li>
+                    <li>Drag to rotate, scroll to zoom.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="glass-panel" id="info-panel">
+        <div class="panel-header">
+            <h1 id="country-name">Hover a Country</h1>
+        </div>
+        <div class="panel-body">
+            <div class="time-display" id="local-time">--:--:--</div>
+            <div class="date-display" id="local-date">---</div>
+            <div class="timezone-display" id="timezone-info">UTC Offset: --</div>
+        </div>
+    </div>
+    
+    <div class="legend">
+        <div class="legend-title">Local Time Color Scale</div>
+        <div class="legend-bar"></div>
+        <div class="legend-labels">
+            <span>00:00</span>
+            <span>06:00</span>
+            <span>12:00</span>
+            <span>18:00</span>
+            <span>24:00</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
