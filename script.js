@@ -258,3 +258,33 @@ accordionToggle.addEventListener('click', () => {
     accordionContent.setAttribute('aria-hidden', isExpanded);
     accordionContent.classList.toggle('open');
 });
+
+// Font Personalization
+const fontSelect = document.getElementById('font-select');
+if (fontSelect) {
+    fontSelect.addEventListener('change', (e) => {
+        const selectedFont = e.target.value;
+        
+        // Load the font from Google Fonts if it's not the default
+        const fontId = `font-${selectedFont.replace(/\s+/g, '-')}`;
+        if (!document.getElementById(fontId) && selectedFont !== 'Outfit') {
+            const link = document.createElement('link');
+            link.id = fontId;
+            link.rel = 'stylesheet';
+            link.href = `https://fonts.googleapis.com/css2?family=${selectedFont.replace(/\s+/g, '+')}:wght@300;400;600&display=swap`;
+            document.head.appendChild(link);
+        }
+        
+        // Apply the font to the body
+        document.body.style.fontFamily = `"${selectedFont}", sans-serif`;
+        
+        // Apply the font to the globe tooltip specifically as it's injected inside the container
+        let tooltipStyle = document.getElementById('dynamic-tooltip-font');
+        if (!tooltipStyle) {
+            tooltipStyle = document.createElement('style');
+            tooltipStyle.id = 'dynamic-tooltip-font';
+            document.head.appendChild(tooltipStyle);
+        }
+        tooltipStyle.textContent = `.globe-tooltip { font-family: "${selectedFont}", sans-serif !important; }`;
+    });
+}
